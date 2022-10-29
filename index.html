@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote</title>
+
+    <style>
+
+        .widget {
+            padding: 5px 5px ;
+            color: #000000;
+            text-align: center;
+                max-width: 95%;
+            margin: auto;
+            font-variant-caps: petite-caps;
+            font-size: 2em;
+
+        }
+
+        div {
+             width: 95%;
+             min-height: 100px;
+
+            background:
+                linear-gradient(to right, black 4px, transparent 4px) 0 0,
+                linear-gradient(to right, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to left, black 4px, transparent 4px) 100% 100%,
+                linear-gradient(to bottom, black 4px, transparent 4px) 0 0,
+                linear-gradient(to bottom, black 4px, transparent 4px) 100% 0,
+                linear-gradient(to top, black 4px, transparent 4px) 0 100%,
+                linear-gradient(to top, black 4px, transparent 4px) 100% 100%;
+
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+}
+
+     
+    </style>
+</head>
+<body>
+
+    <div class="widget" id="widget"></div>
+
+
+<script>
+
+quotes=[
+"Icarus laughed as he fell.
+Threw his head back and
+yelled to the winds,
+arms spread wide,
+teeth bared to the world,
+Because there is a bitter triumph in crashing,
+when you should be soaring. 
+- Fiona
+Rewriting Icarus (Tumblr)",
+"There’s a certain beauty
+in setting the world on fire
+and watching from the centre
+of the flames.
+- Fiona
+Rewriting Icarus (Tumblr)",
+"You came.
+           You called.
+- Dream of the Endless to Callipso
+Sandman",
+"You used Corruption, believing in me? How beautiful.
+- Osamu Dazai
+Bungo Stray Dogs",
+"My biggest fear coming true led to my salvation: i am not unique, i am not alone.
+- Affectingbot
+Twitter",
+"In the back of my mind
+You died
+And I didn't even cry
+No, not a single tear
+And I'm sick of waiting patiently
+For someone that won't even arrive
+- d4vd
+Romantic Homicide",
+"There is a way. But it can't be done alone. You and I need to work together... Do you trust me?
+- Osamu Dazai 
+Bungo Stray Dogs",
+];
+
+const INTERVAL = 86400000;
+
+function dispalyQuote(){
+
+    document.getElementById('widget').innerHTML =quotes[0];
+    quotes.forEach((quote, i) => {
+        setTimeout(() => {
+            document.getElementById('widget').innerHTML =quote;
+        }, i * INTERVAL);  
+    });
+    }
+
+    function dispalyWidget() {
+        dispalyQuote();
+        setTimeout(dispalyWidget, quotes.length*INTERVAL);
+    }
+    dispalyWidget()
+
+</script>
+
+</body>
+</html>
